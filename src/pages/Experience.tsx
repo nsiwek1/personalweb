@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, Briefcase, Calendar, MapPin } from 'lucide-react';
+import { Briefcase, Calendar, MapPin } from 'lucide-react';
 
 const Experience: React.FC = () => {
   const experiences = [
@@ -42,7 +42,7 @@ const Experience: React.FC = () => {
         period: "June 2024 - July 2024",
         description: [
           "Created a monitoring system for newly introduced GenAI-based tools using Machine Learning (RAGs) and Sklearn libraries to allow analysis of over 40 parameters",
-          "Researched available GenAI models and analyzed them on research papers-based benchmarks; presented findings to the bank’s board, which led to change of the used LLM model and increased usage of AI agents",
+          "Researched available GenAI models and analyzed them on research papers-based benchmarks; presented findings to the bank's board, which led to change of the used LLM model and increased usage of AI agents",
         ],
         technologies: ["Python", "Flask"]
       }
