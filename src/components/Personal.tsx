@@ -1,145 +1,162 @@
-import React, { useState } from 'react';
-import { Calendar, Tag, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { MapPin, Utensils, Loader2 } from 'lucide-react';
 
-interface BlogPost {
-  date: string;
-  title: string;
-  content: string;
-  tags: string[];
-  image?: string;
+interface BeliReview {
+  restaurant: string;
+  price: string;
+  cuisine: string;
+  location: string;
 }
 
-const Personal: React.FC = () => {
-  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+export default function Personal() {
+  const [reviews, setReviews] = useState<BeliReview[]>([]);
+  const [selectedReview, setSelectedReview] = useState<BeliReview | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const blogPosts: BlogPost[] = [
+  useEffect(() => {
+    // Load reviews from JSON file
+    fetch('/beli_reviews.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to load reviews');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setReviews(data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error loading reviews:', error);
+        setError('Failed to load restaurant reviews. Please try again later.');
+        setLoading(false);
+      });
+  }, []);
 
-    {
-        date: "March 21, 2025",
-        title: "Will miss you, Singapore",
-        content: "The second half of spring break, I was teaching a high school program in Singapore. I run workshops on web development and introduced students to HTML and CSS. I tried Dragon Fruit and loved it, went to a night safari and flower garden ",
-        tags: ["travel", "food", "teaching"],
-        image: "/images/IMG_2409.HEIC"
-      },
-    {
-      date: "March 15, 2025",
-      title: "안녕하세요, Seoul",
-      content: "I spent first half of spring break in Seoul, Korea, visiting high school friends, exploring the city, accidentally ending up on a hike and buying (too much) skincare. I tried korean barbecue for the first time and studied for CS 124 midterm in the prettiest library ever!",
-      tags: ["travel", "food", "nature"],
-      image: "/images/IMG_2120.HEIC"
-    },
-  ];
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
+          <div className="text-center">
+            <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4 text-primary" />
+            <p className="text-xl text-primary">Loading restaurants...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-background py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
+          <div className="text-center">
+            <p className="text-xl text-red-400 mb-4">{error}</p>
+            <button 
+              onClick={() => window.location.reload()}
+              className="px-4 py-2 bg-primary text-background rounded-lg hover:bg-primary/90 transition-colors"
+            >
+              Try Again
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <section className="min-h-screen pt-24 pb-12">
+    <div className="min-h-screen bg-background py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="text-5xl font-bold text-secondary">
-            Personal Notes
-          </h2>
+        <div className="flex items-center gap-4 mb-12">
+          <h1 className="text-5xl font-bold text-secondary">
+            My Restaurant Rankings
+          </h1>
           <div className="h-[1px] flex-1 bg-primary/10"></div>
         </div>
         
-        <div className="space-y-8">
-          {blogPosts.map((post, index) => (
-            <div 
-              key={index}
-              onClick={() => setSelectedPost(post)}
-              className="group rounded-[8px] p-6 hover:bg-primary/5 transition-all duration-300 cursor-pointer"
-            >
-              <div className="flex items-center gap-2 text-primary/70 mb-2">
-                <Calendar size={16} />
-                <span>{post.date}</span>
-              </div>
-              <h3 className="text-2xl font-semibold text-primary group-hover:text-secondary transition-all duration-300 mb-3">
-                {post.title}
-              </h3>
-              <div className="flex gap-6 items-start">
-                <p className="text-primary/70 leading-relaxed mb-4 line-clamp-2 flex-1">
-                  {post.content}
-                </p>
-                {post.image && (
-                  <div className="w-32 h-32 rounded-[8px] overflow-hidden flex-shrink-0">
-                    <img 
-                      src={post.image} 
-                      alt={post.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                )}
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {post.tags.map((tag, i) => (
-                  <span 
-                    key={i}
-                    className="flex items-center gap-1 px-3 py-1 text-sm bg-primary/5 rounded-[8px] text-primary/70 group-hover:bg-primary/10 transition-all duration-300"
-                  >
-                    <Tag size={14} />
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Modal Popup */}
-      {selectedPost && (
-        <div 
-          className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-          onClick={() => setSelectedPost(null)}
-        >
-          <div 
-            className="bg-background rounded-[8px] p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto relative"
-            onClick={e => e.stopPropagation()}
-          >
-            <button 
-              onClick={() => setSelectedPost(null)}
-              className="absolute top-4 right-4 p-2 rounded-full hover:bg-primary/10 transition-all duration-300"
-            >
-              <X size={20} className="text-primary/70" />
-            </button>
-            
-            <div className="flex items-center gap-2 text-primary/70 mb-4">
-              <Calendar size={16} />
-              <span>{selectedPost.date}</span>
-            </div>
-            
-            <h3 className="text-3xl font-semibold text-secondary mb-4">
-              {selectedPost.title}
-            </h3>
-            
-            {selectedPost.image && (
-              <div className="mb-6 rounded-[8px] overflow-hidden">
-                <img 
-                  src={selectedPost.image} 
-                  alt={selectedPost.title}
-                  className="w-full h-64 object-cover"
-                />
-              </div>
-            )}
-            
-            <p className="text-primary/70 leading-relaxed mb-6">
-              {selectedPost.content}
-            </p>
-            
-            <div className="flex flex-wrap gap-2">
-              {selectedPost.tags.map((tag, i) => (
-                <span 
-                  key={i}
-                  className="flex items-center gap-1 px-3 py-1 text-sm bg-primary/5 rounded-[8px] text-primary/70"
-                >
-                  <Tag size={14} />
-                  {tag}
-                </span>
-              ))}
-            </div>
+        {reviews.length === 0 ? (
+          <div className="text-center text-primary/70">
+            <p className="text-xl">No restaurants found.</p>
           </div>
-        </div>
-      )}
-    </section>
-  );
-};
+        ) : (
+          <div className="space-y-4">
+            {reviews.map((review, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                className="group bg-primary/5 rounded-[8px] p-6 hover:bg-primary/10 transition-all duration-300 cursor-pointer"
+                onClick={() => setSelectedReview(review)}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-6">
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-2xl font-bold text-primary">
+                      #{index + 1}
+                    </div>
+                    <h3 className="text-2xl font-semibold text-primary group-hover:text-secondary transition-all duration-300">
+                      {review.restaurant}
+                    </h3>
+                  </div>
+                  
+                  <div className="flex items-center gap-6 text-primary/70">
+                    <div className="flex items-center gap-2">
+                      <Utensils className="w-4 h-4" />
+                      <span>{review.cuisine}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <MapPin className="w-4 h-4" />
+                      <span>{review.location}</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
 
-export default Personal; 
+        {/* Modal for detailed view */}
+        {selectedReview && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
+            onClick={() => setSelectedReview(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="bg-background rounded-[8px] p-8 max-w-2xl w-full"
+              onClick={e => e.stopPropagation()}
+            >
+              <div className="flex items-start justify-between mb-6">
+                <h2 className="text-3xl font-bold text-primary">
+                  {selectedReview.restaurant}
+                </h2>
+                <button
+                  onClick={() => setSelectedReview(null)}
+                  className="text-primary/70 hover:text-primary transition-colors duration-300"
+                >
+                  ✕
+                </button>
+              </div>
+              
+              <div className="flex items-center gap-6 text-primary/70">
+                <div className="flex items-center gap-2">
+                  <Utensils className="w-5 h-5" />
+                  <span>{selectedReview.cuisine}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-5 h-5" />
+                  <span>{selectedReview.location}</span>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </div>
+    </div>
+  );
+} 
