@@ -14,12 +14,8 @@ const Hero: React.FC = () => {
                 <span className="text-primary">Hi, I'm </span>
                 <span className="text-secondary">Natalia</span>
               </h1>
-              <div className="flex items-center justify-center lg:justify-start space-x-2 sm:space-x-3 text-primary/70">
-                <Coffee size={20} className="animate-bounce sm:w-6 sm:h-6" />
-                <span className="text-base sm:text-lg">Coffee & Code enthusiast</span>
-              </div>
               <p className="text-base sm:text-lg md:text-xl text-primary/70 max-w-3xl leading-relaxed">
-                Welcome to my portfolio! I'm a rising junior at Harvard and I'm originally from Poland. I study Computer 
+               I'm a rising junior at Harvard and I'm originally from Poland. I study Computer 
                 Science and Statistics. I'm passionate about impactful, customer-centric and innovative technology that 
                 helps people live better lives. Super excited to connect and don't hesistate to contact me if you want to chat!
               </p>
