@@ -26,7 +26,7 @@ const Projects: React.FC = () => {
       },
     {
       title: "OneDegree Semester Project",
-      description: "Collaborated in the team of 7 to develop a chatbot assisting OneDegree’s employees in more efficient search for appropriate resources for underprivileged individuals in LA area; Implemented the tool using function calling (API) and RAGs through ChatGPT’s API and React.js",
+      description: "Collaborated in the team of 7 to develop a chatbot assisting OneDegree's employees in more efficient search for appropriate resources for underprivileged individuals in LA area; Implemented the tool using function calling (API) and RAGs through ChatGPT's API and React.js",
       technologies: ["Python", "OpenAI API", "React.js", "Function Calling"],
       github: "",
       live: ""
@@ -64,33 +64,33 @@ const Projects: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
-        <div className="flex items-center gap-4 mb-12">
-          <h1 className="text-5xl font-bold text-secondary">
+    <div className="min-h-screen bg-background pt-24 pb-12 px-4 sm:px-6 md:px-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex items-center gap-4 mb-8 sm:mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary">
             Projects
           </h1>
           <div className="h-[1px] flex-1 bg-primary/10"></div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
           {projects.map((project, index) => (
             <div 
               key={index}
-              className="group rounded-[8px] p-8 hover:bg-primary/5 transition-all duration-300"
+              className="group rounded-lg p-4 sm:p-6 md:p-8 hover:bg-primary/5 transition-all duration-300"
             >
-              <div className="flex flex-col space-y-4">
-                <div className="flex items-start justify-between">
-                  <h3 className="text-3xl font-semibold text-primary group-hover:text-secondary transition-all duration-300">{project.title}</h3>
-                  <div className="flex space-x-3">
+              <div className="flex flex-col space-y-3 sm:space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-primary group-hover:text-secondary transition-all duration-300">{project.title}</h3>
+                  <div className="flex gap-2 sm:gap-3">
                     {project.github && (
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 rounded-lg bg-primary/10 hover:bg-primary/20 transition-all duration-300"
+                        className="p-2 sm:p-2.5 rounded-lg bg-primary/10 hover:bg-primary/20 transition-all duration-300"
                       >
-                        <Github size={20} className="text-primary/70 group-hover:text-primary" />
+                        <Github size={18} className="text-primary/70 group-hover:text-primary sm:w-5 sm:h-5" />
                       </a>
                     )}
                     {project.live && (
@@ -98,21 +98,21 @@ const Projects: React.FC = () => {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 rounded-lg bg-primary/10 hover:bg-primary/20 transition-all duration-300"
+                        className="p-2 sm:p-2.5 rounded-lg bg-primary/10 hover:bg-primary/20 transition-all duration-300"
                       >
-                        <ExternalLink size={20} className="text-primary/70 group-hover:text-primary" />
+                        <ExternalLink size={18} className="text-primary/70 group-hover:text-primary sm:w-5 sm:h-5" />
                       </a>
                     )}
                   </div>
                 </div>
 
-                <p className="text-lg text-primary/70">{project.description}</p>
+                <p className="text-sm sm:text-base md:text-lg text-primary/70">{project.description}</p>
 
-                <div className="flex flex-wrap gap-3 pt-2">
+                <div className="flex flex-wrap gap-2 sm:gap-3 pt-1 sm:pt-2">
                   {project.technologies.map((tech, i) => (
                     <span 
                       key={i}
-                      className="px-4 py-2 text-base bg-primary/5 rounded-[8px] text-primary/70 group-hover:bg-primary/10 transition-all duration-300"
+                      className="px-3 py-1 sm:px-4 sm:py-2 text-sm sm:text-base bg-primary/5 rounded-lg text-primary/70 group-hover:bg-primary/10 transition-all duration-300"
                     >
                       {tech}
                     </span>

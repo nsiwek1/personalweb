@@ -25,80 +25,80 @@ const Experience: React.FC = () => {
       technologies: ["Python", "Flask", "SQL", "C", "HTML", "JS"]
     }, 
     {
-        title: "Research Assistant",
-        company: "MIT Media Lab",
-        location: "Cambridge, MA",
-        period: "October 2024 - May 2025",
-        description: [
-          "Collected, preprocessed and analyzed data from smell sensors (using hardware through Arduino) with changing atmospheric conditions to develop a ML model to recognize and categorize scents",
-          "Designed and trained neural network models to map sensor signal patterns to specific odor classes, improving classification accuracy",
-        ],
-        technologies: ["Arduino", "Python", "PyTorch", "Machine Learning"]
-      },
-      {
-        title: "AI Intern",
-        company: "Velobank",
-        location: "Warsaw, Poland",
-        period: "June 2024 - July 2024",
-        description: [
-          "Created a monitoring system for newly introduced GenAI-based tools using Machine Learning (RAGs) and Sklearn libraries to allow analysis of over 40 parameters",
-          "Researched available GenAI models and analyzed them on research papers-based benchmarks; presented findings to the bank's board, which led to change of the used LLM model and increased usage of AI agents",
-        ],
-        technologies: ["Python", "Flask"]
-      }
+      title: "Research Assistant",
+      company: "MIT Media Lab",
+      location: "Cambridge, MA",
+      period: "October 2024 - May 2025",
+      description: [
+        "Collected, preprocessed and analyzed data from smell sensors (using hardware through Arduino) with changing atmospheric conditions to develop a ML model to recognize and categorize scents",
+        "Designed and trained neural network models to map sensor signal patterns to specific odor classes, improving classification accuracy",
+      ],
+      technologies: ["Arduino", "Python", "PyTorch", "Machine Learning"]
+    },
+    {
+      title: "AI Intern",
+      company: "Velobank",
+      location: "Warsaw, Poland",
+      period: "June 2024 - July 2024",
+      description: [
+        "Created a monitoring system for newly introduced GenAI-based tools using Machine Learning (RAGs) and Sklearn libraries to allow analysis of over 40 parameters",
+        "Researched available GenAI models and analyzed them on research papers-based benchmarks; presented findings to the bank's board, which led to change of the used LLM model and increased usage of AI agents",
+      ],
+      technologies: ["Python", "Flask"]
+    }
   ];
 
   return (
-    <div className="min-h-screen bg-background py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
-        <div className="flex items-center gap-4 mb-12">
-          <h1 className="text-5xl font-bold text-secondary">
+    <div className="min-h-screen bg-background pt-24 pb-12 px-4 sm:px-6 md:px-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex items-center gap-4 mb-8 sm:mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary">
             Experience
           </h1>
           <div className="h-[1px] flex-1 bg-primary/10"></div>
         </div>
         
-        <div className="space-y-8">
+        <div className="space-y-6 sm:space-y-8">
           {experiences.map((exp, index) => (
             <div 
               key={index}
-              className="group rounded-[8px] p-8 hover:bg-primary/5 transition-all duration-300"
+              className="group rounded-lg p-4 sm:p-6 md:p-8 hover:bg-primary/5 transition-all duration-300"
             >
-              <div className="flex flex-col space-y-4">
-                <div className="flex items-start justify-between">
+              <div className="flex flex-col space-y-3 sm:space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
                   <div>
-                    <h3 className="text-3xl font-semibold text-primary group-hover:text-secondary transition-all duration-300">{exp.title}</h3>
-                    <div className="flex items-center space-x-6 mt-2">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-primary group-hover:text-secondary transition-all duration-300">{exp.title}</h3>
+                    <div className="flex flex-wrap items-center gap-3 sm:gap-6 mt-2">
                       <div className="flex items-center text-primary/70">
-                        <Briefcase size={20} className="mr-2" />
-                        <span className="text-lg">{exp.company}</span>
+                        <Briefcase size={16} className="mr-2 sm:w-5 sm:h-5" />
+                        <span className="text-sm sm:text-base md:text-lg">{exp.company}</span>
                       </div>
                       <div className="flex items-center text-primary/70">
-                        <MapPin size={20} className="mr-2" />
-                        <span className="text-lg">{exp.location}</span>
+                        <MapPin size={16} className="mr-2 sm:w-5 sm:h-5" />
+                        <span className="text-sm sm:text-base md:text-lg">{exp.location}</span>
                       </div>
                       <div className="flex items-center text-primary/70">
-                        <Calendar size={20} className="mr-2" />
-                        <span className="text-lg">{exp.period}</span>
+                        <Calendar size={16} className="mr-2 sm:w-5 sm:h-5" />
+                        <span className="text-sm sm:text-base md:text-lg">{exp.period}</span>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <ul className="list-none space-y-2 text-primary/70">
+                <ul className="list-none space-y-1.5 sm:space-y-2 text-primary/70">
                   {exp.description.map((item, i) => (
                     <li key={i} className="flex">
                       <span className="mr-2">•</span>
-                      <span className="text-lg">{item}</span>
+                      <span className="text-sm sm:text-base md:text-lg">{item}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="flex flex-wrap gap-3 pt-2">
+                <div className="flex flex-wrap gap-2 sm:gap-3 pt-1 sm:pt-2">
                   {exp.technologies.map((tech, i) => (
                     <span 
                       key={i}
-                      className="px-4 py-2 text-base bg-primary/5 rounded-[8px] text-primary/70 group-hover:bg-primary/10 transition-all duration-300"
+                      className="px-3 py-1 sm:px-4 sm:py-2 text-sm sm:text-base bg-primary/5 rounded-lg text-primary/70 group-hover:bg-primary/10 transition-all duration-300"
                     >
                       {tech}
                     </span>
