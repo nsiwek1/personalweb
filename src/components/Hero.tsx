@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
                 <span className="text-base sm:text-lg">Coffee & Code enthusiast</span>
               </div>
               <p className="text-base sm:text-lg md:text-xl text-primary/70 max-w-3xl leading-relaxed">
-                Welcome to my portfolio! I'm a rising junior at Harvard and I'm originally from Poland. I study Computer 
+               I'm a rising junior at Harvard where I study Computer 
                 Science and Statistics. I'm passionate about impactful, customer-centric and innovative technology that 
                 helps people live better lives. Super excited to connect and don't hesistate to contact me if you want to chat!
               </p>
