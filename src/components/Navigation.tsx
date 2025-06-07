@@ -42,10 +42,10 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, currentPage }) => {
               School
             </button>
             <button 
-              onClick={() => handleNavigation('personal')}
-              className={`text-primary/70 hover:text-secondary transition-all duration-300 ${currentPage === 'personal' ? 'text-secondary' : ''}`}
+              onClick={() => handleNavigation('food')}
+              className={`text-primary/70 hover:text-secondary transition-all duration-300 ${currentPage === 'food' ? 'text-secondary' : ''}`}
             >
-              Personal
+              Food
             </button>
           </div>
         </div>

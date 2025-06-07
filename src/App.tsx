@@ -28,7 +28,7 @@ function App() {
         return <Experience />;
       case 'projects':
         return <Projects />;
-      case 'personal':
+      case 'food':
         return <Personal />;
       case 'school':
         return <School />;

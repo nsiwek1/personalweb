@@ -70,8 +70,8 @@ export default function Personal() {
     <div className="min-h-screen bg-background py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
         <div className="flex items-center gap-4 mb-12">
-          <h1 className="text-5xl font-bold text-secondary">
-            My Restaurant Rankings
+          <h1 className="text-4xl sm:text-5xl font-bold text-secondary">
+            My top 20 restaurants
           </h1>
           <div className="h-[1px] flex-1 bg-primary/10"></div>
         </div>
@@ -88,27 +88,27 @@ export default function Personal() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="group bg-primary/5 rounded-[8px] p-6 hover:bg-primary/10 transition-all duration-300 cursor-pointer"
+                className="group bg-primary/5 rounded-[8px] p-4 sm:p-6 hover:bg-primary/10 transition-all duration-300 cursor-pointer"
                 onClick={() => setSelectedReview(review)}
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-6">
-                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-2xl font-bold text-primary">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="flex items-center gap-4 sm:gap-6">
+                    <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-full flex items-center justify-center text-xl sm:text-2xl font-bold text-primary">
                       #{index + 1}
                     </div>
-                    <h3 className="text-2xl font-semibold text-primary group-hover:text-secondary transition-all duration-300">
+                    <h3 className="text-xl sm:text-2xl font-semibold text-primary group-hover:text-secondary transition-all duration-300">
                       {review.restaurant}
                     </h3>
                   </div>
                   
-                  <div className="flex items-center gap-6 text-primary/70">
+                  <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-primary/70">
                     <div className="flex items-center gap-2">
                       <Utensils className="w-4 h-4" />
-                      <span>{review.cuisine}</span>
+                      <span className="text-sm sm:text-base">{review.cuisine}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <MapPin className="w-4 h-4" />
-                      <span>{review.location}</span>
+                      <span className="text-sm sm:text-base">{review.location}</span>
                     </div>
                   </div>
                 </div>
@@ -128,11 +128,11 @@ export default function Personal() {
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="bg-background rounded-[8px] p-8 max-w-2xl w-full"
+              className="bg-background rounded-[8px] p-6 sm:p-8 max-w-2xl w-full mx-4"
               onClick={e => e.stopPropagation()}
             >
               <div className="flex items-start justify-between mb-6">
-                <h2 className="text-3xl font-bold text-primary">
+                <h2 className="text-2xl sm:text-3xl font-bold text-primary">
                   {selectedReview.restaurant}
                 </h2>
                 <button
@@ -143,14 +143,14 @@ export default function Personal() {
                 </button>
               </div>
               
-              <div className="flex items-center gap-6 text-primary/70">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-primary/70">
                 <div className="flex items-center gap-2">
                   <Utensils className="w-5 h-5" />
-                  <span>{selectedReview.cuisine}</span>
+                  <span className="text-base sm:text-lg">{selectedReview.cuisine}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="w-5 h-5" />
-                  <span>{selectedReview.location}</span>
+                  <span className="text-base sm:text-lg">{selectedReview.location}</span>
                 </div>
               </div>
             </motion.div>
