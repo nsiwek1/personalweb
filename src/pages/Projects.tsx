@@ -18,6 +18,13 @@ const Projects: React.FC = () => {
       live: ""
     },
     {
+      title: "Personal Website ",
+        description: "Developed a personal website to showcase my work and experience (you're here)",
+        technologies: ["React.js", "Tailwind CSS"],
+      github: "https://github.com/nsiwek1/personalweb",
+      live: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+    {
         title: "Portal for HPAIR participants ",
         description: "Developed features for portal for participants of HPAIR conference. In particular developed registration flow, bulk assingments for events, UX, documentation and contact card generation ",
         technologies: ["React.js", "Firebase"],
