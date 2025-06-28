@@ -74,8 +74,8 @@ const Projects: React.FC = () => {
     <div className="min-h-screen bg-background pt-24 pb-12 px-4 sm:px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center gap-4 mb-8 sm:mb-12">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary">
-            Projects
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary">
+            My Projects
           </h1>
           <div className="h-[1px] flex-1 bg-primary/10"></div>
         </div>
@@ -88,7 +88,7 @@ const Projects: React.FC = () => {
             >
               <div className="flex flex-col space-y-3 sm:space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-primary group-hover:text-secondary transition-all duration-300">{project.title}</h3>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-primary group-hover:text-secondary transition-all duration-300">{project.title}</h3>
                   <div className="flex gap-2 sm:gap-3">
                     {project.github && (
                       <a
@@ -113,7 +113,7 @@ const Projects: React.FC = () => {
                   </div>
                 </div>
 
-                <p className="text-sm sm:text-base md:text-lg text-primary/70">{project.description}</p>
+                <p className="text-xs sm:text-sm md:text-base text-primary/70">{project.description}</p>
 
                 <div className="flex flex-wrap gap-2 sm:gap-3 pt-1 sm:pt-2">
                   {project.technologies.map((tech, i) => (

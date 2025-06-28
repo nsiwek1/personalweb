@@ -41,7 +41,7 @@ export default function Personal() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
             <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4 text-primary" />
-            <p className="text-lg sm:text-xl text-primary">Loading restaurants...</p>
+            <p className="text-base sm:text-lg text-primary">Loading restaurants...</p>
           </div>
         </div>
       </div>
@@ -53,7 +53,7 @@ export default function Personal() {
       <div className="min-h-screen bg-background pt-24 pb-12 px-4 sm:px-6 md:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
-            <p className="text-lg sm:text-xl text-red-400 mb-4">{error}</p>
+            <p className="text-base sm:text-lg text-red-400 mb-4">{error}</p>
             <button 
               onClick={() => window.location.reload()}
               className="px-4 py-2 bg-primary text-background rounded-lg hover:bg-primary/90 transition-colors"
@@ -70,7 +70,7 @@ export default function Personal() {
     <div className="min-h-screen bg-background pt-24 pb-12 px-4 sm:px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-8 sm:mb-12">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-secondary">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-secondary">
             My Restaurant Rankings
           </h1>
           <div className="h-[1px] w-full sm:w-auto sm:flex-1 bg-primary/10"></div>
@@ -78,7 +78,7 @@ export default function Personal() {
         
         {reviews.length === 0 ? (
           <div className="text-center text-primary/70">
-            <p className="text-lg sm:text-xl">No restaurants found.</p>
+            <p className="text-base sm:text-lg">No restaurants found.</p>
           </div>
         ) : (
           <div className="grid gap-3 sm:gap-4">
@@ -93,10 +93,10 @@ export default function Personal() {
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div className="flex items-center gap-3 sm:gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-primary/10 rounded-full flex items-center justify-center text-base sm:text-lg md:text-xl font-bold text-primary">
+                    <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-primary/10 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg font-bold text-primary">
                       #{index + 1}
                     </div>
-                    <h3 className="text-base sm:text-lg md:text-xl font-semibold text-primary group-hover:text-secondary transition-all duration-300">
+                    <h3 className="text-sm sm:text-base md:text-lg font-semibold text-primary group-hover:text-secondary transition-all duration-300">
                       {review.restaurant}
                     </h3>
                   </div>
@@ -104,11 +104,11 @@ export default function Personal() {
                   <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4 text-primary/70">
                     <div className="flex items-center gap-1.5">
                       <Utensils className="w-4 h-4" />
-                      <span className="text-sm sm:text-base">{review.cuisine}</span>
+                      <span className="text-xs sm:text-sm">{review.cuisine}</span>
                     </div>
                     <div className="flex items-center gap-1.5">
                       <MapPin className="w-4 h-4" />
-                      <span className="text-sm sm:text-base">{review.location}</span>
+                      <span className="text-xs sm:text-sm">{review.location}</span>
                     </div>
                   </div>
                 </div>
@@ -132,7 +132,7 @@ export default function Personal() {
               onClick={e => e.stopPropagation()}
             >
               <div className="flex items-start justify-between mb-4 sm:mb-6">
-                <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-primary">
+                <h2 className="text-base sm:text-lg md:text-xl font-bold text-primary">
                   {selectedReview.restaurant}
                 </h2>
                 <button
@@ -146,11 +146,11 @@ export default function Personal() {
               <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4 text-primary/70">
                 <div className="flex items-center gap-1.5">
                   <Utensils className="w-5 h-5" />
-                  <span className="text-sm sm:text-base">{selectedReview.cuisine}</span>
+                  <span className="text-xs sm:text-sm">{selectedReview.cuisine}</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <MapPin className="w-5 h-5" />
-                  <span className="text-sm sm:text-base">{selectedReview.location}</span>
+                  <span className="text-xs sm:text-sm">{selectedReview.location}</span>
                 </div>
               </div>
             </motion.div>

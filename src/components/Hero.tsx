@@ -10,11 +10,11 @@ const Hero: React.FC = () => {
           {/* Left side - Text content */}
           <div className="flex-1 text-center lg:text-left">
             <div className="space-y-4 sm:space-y-6">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
                 <span className="text-primary">Hi, I'm </span>
                 <span className="text-secondary">Natalia</span>
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-primary/70 max-w-3xl leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-primary/70 max-w-3xl leading-relaxed">
                 Welcome to my portfolio! I'm a rising junior at Harvard and I'm originally from Poland. I study Computer 
                 Science and Statistics. I'm passionate about impactful, customer-centric and innovative technology that 
                 helps people live better lives. Super excited to connect and don't hesistate to contact me if you want to chat!
