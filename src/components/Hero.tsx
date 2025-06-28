@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Mail, Coffee } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import HarryPotterQuote from './HarryPotterQuote';
 
 const Hero: React.FC = () => {
