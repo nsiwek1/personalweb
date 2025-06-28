@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Mail, Coffee } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import HarryPotterQuote from './HarryPotterQuote';
 
 const Hero: React.FC = () => {
@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
                 <span className="text-secondary">Natalia</span>
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-primary/70 max-w-3xl leading-relaxed">
-               I'm a rising junior at Harvard and I'm originally from Poland. I study Computer 
+                Welcome to my portfolio! I'm a rising junior at Harvard and I'm originally from Poland. I study Computer 
                 Science and Statistics. I'm passionate about impactful, customer-centric and innovative technology that 
                 helps people live better lives. Super excited to connect and don't hesistate to contact me if you want to chat!
               </p>
