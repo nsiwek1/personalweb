@@ -8,7 +8,7 @@ const Projects: React.FC = () => {
       description: "Developed models using Res-Net-18 and Dense-Net-121 to recognize the status of Chest X-rays reaching up to 90% accuracy on one-domain trained models, and 70% on multi-sourced case",
       technologies: ["Python", "PyTorch", "TensorFlow"],
       github: "https://github.com/nsiwek1/neuro140project" ,
-      live: "https://yourportfolio.com"
+      live: ""
     },
     {
       title: "Privacy-Loss Parameter Optimization ",
