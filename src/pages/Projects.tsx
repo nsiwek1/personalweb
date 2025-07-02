@@ -4,6 +4,13 @@ import { Github, ExternalLink } from 'lucide-react';
 const Projects: React.FC = () => {
   const projects = [
     {
+      title: "Tinder for Food Options",
+      description: "Built a Swift iOS app that enables group dining decisions through a Tinder-like swiping interface. Users can create groups, swipe on restaurant options, and find consensus on dining choices that satisfy everyone in the group.",
+      technologies: ["Swift", "Firebase", "Google Places API"],
+      github: "https://github.com/nsiwek1/food-app" ,
+      live: ""
+    },
+    {
       title: "Chest Disease Classification using CNNs   ",
       description: "Developed models using Res-Net-18 and Dense-Net-121 to recognize the status of Chest X-rays reaching up to 90% accuracy on one-domain trained models, and 70% on multi-sourced case",
       technologies: ["Python", "PyTorch", "TensorFlow"],
