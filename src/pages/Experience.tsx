@@ -9,7 +9,8 @@ const Experience: React.FC = () => {
       location: "Redmond, WA",
       period: "May 2025 - August 2025",
       description: [
-        "Contributed to the Managed Instance team for App Services in Azure",
+        "Developed, designed and tested Virtual Hard Disk (VHD) caching for Azure App Services, which reduced the time to start new instances by 80%",
+        "Implemented pipelines to use preconfigured VHDs for script installations", 
       ],
       technologies: ["C#", "Kusto", "Cloud", "Git", "Azure"]
     },
@@ -52,7 +53,7 @@ const Experience: React.FC = () => {
     <div className="min-h-screen bg-background pt-24 pb-12 px-4 sm:px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center gap-4 mb-8 sm:mb-12">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary">
             Experience
           </h1>
           <div className="h-[1px] flex-1 bg-primary/10"></div>
@@ -67,19 +68,19 @@ const Experience: React.FC = () => {
               <div className="flex flex-col space-y-3 sm:space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
                   <div>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-primary group-hover:text-secondary transition-all duration-300">{exp.title}</h3>
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-primary group-hover:text-secondary transition-all duration-300">{exp.title}</h3>
                     <div className="flex flex-wrap items-center gap-3 sm:gap-6 mt-2">
                       <div className="flex items-center text-primary/70">
                         <Briefcase size={16} className="mr-2 sm:w-5 sm:h-5" />
-                        <span className="text-xs sm:text-sm md:text-base">{exp.company}</span>
+                        <span className="text-sm sm:text-base md:text-lg">{exp.company}</span>
                       </div>
                       <div className="flex items-center text-primary/70">
                         <MapPin size={16} className="mr-2 sm:w-5 sm:h-5" />
-                        <span className="text-xs sm:text-sm md:text-base">{exp.location}</span>
+                        <span className="text-sm sm:text-base md:text-lg">{exp.location}</span>
                       </div>
                       <div className="flex items-center text-primary/70">
                         <Calendar size={16} className="mr-2 sm:w-5 sm:h-5" />
-                        <span className="text-xs sm:text-sm md:text-base">{exp.period}</span>
+                        <span className="text-sm sm:text-base md:text-lg">{exp.period}</span>
                       </div>
                     </div>
                   </div>
@@ -89,7 +90,7 @@ const Experience: React.FC = () => {
                   {exp.description.map((item, i) => (
                     <li key={i} className="flex">
                       <span className="mr-2">•</span>
-                      <span className="text-xs sm:text-sm md:text-base">{item}</span>
+                      <span className="text-sm sm:text-base md:text-lg">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -98,7 +99,7 @@ const Experience: React.FC = () => {
                   {exp.technologies.map((tech, i) => (
                     <span 
                       key={i}
-                      className="px-3 py-1 sm:px-4 sm:py-2 text-sm sm:text-base bg-primary/5 rounded-lg text-primary/70 group-hover:bg-primary/10 transition-all duration-300"
+                      className="px-3 py-1 sm:px-4 sm:py-2 text-base sm:text-lg bg-primary/5 rounded-lg text-primary/70 group-hover:bg-primary/10 transition-all duration-300"
                     >
                       {tech}
                     </span>

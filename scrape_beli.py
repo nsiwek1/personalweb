@@ -63,11 +63,38 @@ def scrape_beli_reviews():
             scroll_to_bottom(driver)
             time.sleep(2)  # Wait for any lazy-loaded content
             
-            # Find all restaurant containers
+            # Try different selectors for restaurant containers
             print("Looking for restaurant containers...")
-            restaurant_containers = wait.until(
-                EC.presence_of_all_elements_located((By.CSS_SELECTOR, "ion-item"))
-            )
+            
+            # Try multiple selectors
+            selectors = [
+                "ion-item",
+                "[data-testid='restaurant-item']",
+                ".restaurant-item",
+                ".item",
+                "div[class*='restaurant']",
+                "div[class*='item']"
+            ]
+            
+            restaurant_containers = []
+            for selector in selectors:
+                try:
+                    containers = driver.find_elements(By.CSS_SELECTOR, selector)
+                    if containers:
+                        print(f"Found {len(containers)} containers with selector: {selector}")
+                        restaurant_containers = containers
+                        break
+                except:
+                    continue
+            
+            if not restaurant_containers:
+                print("No restaurant containers found with any selector")
+                print("Available elements on page:")
+                elements = driver.find_elements(By.CSS_SELECTOR, "*")
+                for i, elem in enumerate(elements[:20]):
+                    print(f"{i}: {elem.tag_name} - {elem.get_attribute('class')}")
+                return []
+            
             print(f"Found {len(restaurant_containers)} restaurant containers")
             
             reviews = []
@@ -80,12 +107,39 @@ def scrape_beli_reviews():
                     driver.execute_script("arguments[0].scrollIntoView(true);", container)
                     time.sleep(0.5)  # Wait for any animations
                     
-                    # Get the restaurant name
-                    try:
-                        name_element = container.find_element(By.CSS_SELECTOR, "p.text-item-title")
-                        name = name_element.text.split('.', 1)[1].strip() if '.' in name_element.text else name_element.text.strip()
-                    except:
-                        name = container.text.split('\n')[0].strip()
+                    # Get the restaurant name - try multiple selectors
+                    name = ""
+                    name_selectors = [
+                        "p.text-item-title",
+                        "h1", "h2", "h3", "h4", "h5", "h6",
+                        "[data-testid='restaurant-name']",
+                        ".restaurant-name",
+                        ".name",
+                        "p", "span", "div"
+                    ]
+                    
+                    for selector in name_selectors:
+                        try:
+                            name_elements = container.find_elements(By.CSS_SELECTOR, selector)
+                            for elem in name_elements:
+                                text = elem.text.strip()
+                                if text and len(text) > 2 and not text.isdigit():
+                                    name = text
+                                    break
+                            if name:
+                                break
+                        except:
+                            continue
+                    
+                    if not name:
+                        # Try getting text from the container itself
+                        container_text = container.text.strip()
+                        lines = container_text.split('\n')
+                        for line in lines:
+                            if line.strip() and len(line.strip()) > 2 and not line.strip().isdigit():
+                                name = line.strip()
+                                break
+                    
                     print(f"Found name: {name}")
                     
                     # Get all subtitle elements
@@ -110,14 +164,19 @@ def scrape_beli_reviews():
                     print(f"Found price: {price}, cuisine: {cuisine}")
                     print(f"Found location: {location}")
                     
-                    review = {
-                        "restaurant": name,
-                        "price": price,
-                        "cuisine": cuisine,
-                        "location": location
-                    }
-                    reviews.append(review)
-                    print(f"Successfully added review for {name}")
+                    # Only add if we have a valid restaurant name
+                    if name and name != "":
+                        review = {
+                            "restaurant": name,
+                            "price": price,
+                            "cuisine": cuisine,
+                            "location": location
+                        }
+                        reviews.append(review)
+                        print(f"Successfully added review for {name}")
+                    else:
+                        print(f"Skipping restaurant {i} - no valid name found")
+                        
                 except Exception as e:
                     print(f"Error scraping restaurant {i}: {str(e)}")
                     continue

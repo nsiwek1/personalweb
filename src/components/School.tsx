@@ -15,6 +15,31 @@ interface Activity {
 const School: React.FC = () => {
   const classes: Class[] = [
     {
+      name: "Data Structures and Algorithms",
+      code: "CS 1240",
+      semester: "Spring 2025"
+    },
+    {
+      name: "Applied Privacy for Data Science (Differential Privacy)",
+      code: "CS 2080",
+      semester: "Spring 2025"
+    },
+    {
+      name: "Artificial and Human Intelligence",
+      code: "Neuro 140",
+      semester: "Spring 2025"
+    },
+    {
+      name: "Big Data",
+      code: "EC 50",
+      semester: "Spring 2024"
+    },
+    {
+      name: "Graduate Level Probability",
+      code: "STAT 210",
+      semester: "Fall 2024"
+    },
+    {
       name: "Introduction to Computer Science",
       code: "CS 50",
       semester: "Fall 2023"
@@ -35,16 +60,6 @@ const School: React.FC = () => {
       semester: "Spring 2024"
     },
     {
-      name: "Big Data",
-      code: "EC 50",
-      semester: "Spring 2024"
-    },
-    {
-      name: "Graduate Level Probability",
-      code: "STAT 210",
-      semester: "Fall 2024"
-    },
-    {
       name: "Data Science",
       code: "CS 109a",
       semester: "Fall 2024"
@@ -59,21 +74,7 @@ const School: React.FC = () => {
       code: "EC 1745",
       semester: "Fall 2024"
     },
-    {
-      name: "Data Structures and Algorithms",
-      code: "CS 1240",
-      semester: "Spring 2025"
-    },
-    {
-      name: "Applied Privacy for Data Science (Differential Privacy)",
-      code: "CS 2080",
-      semester: "Spring 2025"
-    },
-    {
-      name: "Artificial and Human Intelligence",
-      code: "Neuro 140",
-      semester: "Spring 2025"
-    }
+
   ];
 
   const activities: Activity[] = [
