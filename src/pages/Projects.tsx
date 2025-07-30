@@ -81,7 +81,7 @@ const Projects: React.FC = () => {
     <div className="min-h-screen bg-background pt-24 pb-12 px-4 sm:px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center gap-4 mb-8 sm:mb-12">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-secondary">
             My Projects
           </h1>
           <div className="h-[1px] flex-1 bg-primary/10"></div>
@@ -95,7 +95,7 @@ const Projects: React.FC = () => {
             >
               <div className="flex flex-col space-y-3 sm:space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-primary group-hover:text-secondary transition-all duration-300">{project.title}</h3>
+                  <h3 className="text-base sm:text-lg md:text-xl font-semibold text-primary group-hover:text-secondary transition-all duration-300">{project.title}</h3>
                   <div className="flex gap-2 sm:gap-3">
                     {project.github && (
                       <a
@@ -126,7 +126,7 @@ const Projects: React.FC = () => {
                   {project.technologies.map((tech, i) => (
                     <span 
                       key={i}
-                      className="px-3 py-1 sm:px-4 sm:py-2 text-sm sm:text-base bg-primary/5 rounded-lg text-primary/70 group-hover:bg-primary/10 transition-all duration-300"
+                      className="px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm bg-primary/5 rounded-lg text-primary/70 group-hover:bg-primary/10 transition-all duration-300"
                     >
                       {tech}
                     </span>
