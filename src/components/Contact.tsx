@@ -42,6 +42,7 @@ const Contact: React.FC = () => {
                 <a href="mailto:nataliasiwek@college.harvard.edu" className="flex items-center gap-3 text-primary/70 transition-colors duration-300">
                   <Mail size={20} />
                   <span>nataliasiwek@college.harvard.edu</span>
+                  <span>nsiwek@mit.edu</span>
                 </a>
                 <div className="flex items-center gap-3 text-primary/70">
                   <MapPin size={20} />
