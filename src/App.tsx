@@ -5,7 +5,6 @@ import Experience from './pages/Experience';
 import Projects from './pages/Projects';
 import Personal from './components/Personal';
 import School from './components/School';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
@@ -21,29 +20,26 @@ function App() {
         return (
           <>
             <Hero />
-            <Contact />
+
           </>
         );
       case 'experience':
         return <Experience />;
       case 'projects':
         return <Projects />;
-      case 'food':
-        return <Personal />;
       case 'school':
         return <School />;
       default:
         return (
           <>
             <Hero />
-            <Contact />
           </>
         );
     }
   };
 
   return (
-    <div className="min-h-screen bg-background text-primary overflow-hidden relative">
+    <div className="min-h-screen bg-white text-primary overflow-hidden relative">
       <Navigation onNavigate={handleNavigate} currentPage={currentPage} />
       <main>
         {renderPage()}

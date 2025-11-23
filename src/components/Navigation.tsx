@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 interface NavigationProps {
@@ -8,6 +8,15 @@ interface NavigationProps {
 
 const Navigation: React.FC<NavigationProps> = ({ onNavigate, currentPage }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleNavigation = (page: string) => {
     if (onNavigate) {
@@ -21,28 +30,34 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, currentPage }) => {
     { name: 'Experience', page: 'experience' },
     { name: 'Projects', page: 'projects' },
     { name: 'School', page: 'school' },
-    { name: 'Food', page: 'food' }
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-primary/10">
-      <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo/Name */}
-          <div className="text-xl font-bold text-primary">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled 
+        ? 'bg-white/80 backdrop-blur-xl shadow-sm border-b border-border' 
+        : 'bg-transparent'
+    }`}>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo - more prominent */}
+          <button
+            onClick={() => handleNavigation('home')}
+            className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+          >
             NS
-          </div>
+          </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation - cleaner spacing */}
+          <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => (
               <button
                 key={item.page}
                 onClick={() => handleNavigation(item.page)}
-                className={`text-sm font-medium transition-colors duration-300 ${
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   currentPage === item.page
-                    ? 'text-secondary'
-                    : 'text-primary/70 hover:text-primary'
+                    ? 'bg-accent/10 text-accent'
+                    : 'text-secondary hover:text-primary hover:bg-gray-50'
                 }`}
               >
                 {item.name}
@@ -50,27 +65,35 @@ const Navigation: React.FC<NavigationProps> = ({ onNavigate, currentPage }) => {
             ))}
           </div>
 
-          {/* Mobile Navigation Button */}
+          {/* CTA Button */}
+          <a
+            href="mailto:nataliasiwek@college.harvard.edu"
+            className="hidden md:inline-flex px-6 py-2.5 bg-accent text-white rounded-full text-sm font-medium hover:bg-accentHover transition-all duration-300"
+          >
+            Contact
+          </a>
+
+          {/* Mobile menu button */}
           <button
-            className="md:hidden text-primary/70 hover:text-primary transition-colors duration-300"
+            className="md:hidden text-primary"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile Navigation Menu */}
+        {/* Mobile menu */}
         {isOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-background/95 backdrop-blur-sm border-b border-primary/10">
+          <div className="md:hidden py-4 bg-white border-t border-border">
+            <div className="space-y-1">
               {navItems.map((item) => (
                 <button
                   key={item.page}
                   onClick={() => handleNavigation(item.page)}
-                  className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 ${
+                  className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 ${
                     currentPage === item.page
-                      ? 'text-secondary bg-primary/5'
-                      : 'text-primary/70 hover:text-primary hover:bg-primary/5'
+                      ? 'bg-accent/10 text-accent'
+                      : 'text-secondary hover:bg-gray-50'
                   }`}
                 >
                   {item.name}

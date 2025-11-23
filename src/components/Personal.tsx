@@ -37,11 +37,11 @@ export default function Personal() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background pt-24 pb-12 px-4 sm:px-6 md:px-8">
+      <div className="min-h-screen bg-white py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
-            <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4 text-primary" />
-            <p className="text-base sm:text-lg text-primary">Loading restaurants...</p>
+            <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4 text-accent" />
+            <p className="text-lg text-secondary">Loading restaurants...</p>
           </div>
         </div>
       </div>
@@ -50,13 +50,13 @@ export default function Personal() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-background pt-24 pb-12 px-4 sm:px-6 md:px-8">
+      <div className="min-h-screen bg-white py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
-            <p className="text-base sm:text-lg text-red-400 mb-4">{error}</p>
+            <p className="text-lg text-red-500 mb-4">{error}</p>
             <button 
               onClick={() => window.location.reload()}
-              className="px-4 py-2 bg-primary text-background rounded-lg hover:bg-primary/90 transition-colors"
+              className="px-6 py-3 bg-accent text-white rounded-full hover:bg-accentHover transition-colors"
             >
               Try Again
             </button>
@@ -67,48 +67,53 @@ export default function Personal() {
   }
 
   return (
-    <div className="min-h-screen bg-background pt-24 pb-12 px-4 sm:px-6 md:px-8">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-8 sm:mb-12">
-          <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-secondary">
+        <div className="mb-16">
+          <p className="text-accent font-semibold mb-2 tracking-wide uppercase text-sm">
+            Food Adventures
+          </p>
+          <h1 className="text-5xl md:text-6xl font-bold text-primary mb-4">
             My Restaurant Rankings
           </h1>
-          <div className="h-[1px] w-full sm:w-auto sm:flex-1 bg-primary/10"></div>
+          <p className="text-xl text-secondary max-w-2xl">
+            Exploring culinary experiences, one restaurant at a time
+          </p>
         </div>
         
         {reviews.length === 0 ? (
-          <div className="text-center text-primary/70">
-            <p className="text-sm sm:text-base">No restaurants found.</p>
+          <div className="text-center text-secondary">
+            <p className="text-base">No restaurants found.</p>
           </div>
         ) : (
-          <div className="grid gap-3 sm:gap-4">
+          <div className="grid gap-4">
             {reviews.map((review, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="group bg-primary/5 rounded-lg p-3 sm:p-4 md:p-6 hover:bg-primary/10 transition-all duration-300 cursor-pointer"
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                className="group bg-white rounded-2xl p-6 border border-border hover:border-accent/30 hover:shadow-xl transition-all duration-300 cursor-pointer"
                 onClick={() => setSelectedReview(review)}
               >
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                  <div className="flex items-center gap-3 sm:gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-primary/10 rounded-full flex items-center justify-center text-xs sm:text-sm md:text-base font-bold text-primary">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-base font-bold text-accent">
                       #{index + 1}
                     </div>
-                    <h3 className="text-xs sm:text-sm md:text-base font-semibold text-primary group-hover:text-secondary transition-all duration-300">
+                    <h3 className="text-lg font-bold text-primary group-hover:text-accent transition-all duration-300">
                       {review.restaurant}
                     </h3>
                   </div>
                   
-                  <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4 text-primary/70">
-                    <div className="flex items-center gap-1.5">
-                      <Utensils className="w-4 h-4" />
-                      <span className="text-xs sm:text-sm">{review.cuisine}</span>
+                  <div className="flex flex-wrap items-center gap-4 text-secondary">
+                    <div className="flex items-center gap-2">
+                      <Utensils className="w-5 h-5 text-accent" />
+                      <span className="text-sm">{review.cuisine}</span>
                     </div>
-                    <div className="flex items-center gap-1.5">
-                      <MapPin className="w-4 h-4" />
-                      <span className="text-xs sm:text-sm">{review.location}</span>
+                    <div className="flex items-center gap-2">
+                      <MapPin className="w-5 h-5 text-accent" />
+                      <span className="text-sm">{review.location}</span>
                     </div>
                   </div>
                 </div>
@@ -122,35 +127,35 @@ export default function Personal() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50"
             onClick={() => setSelectedReview(null)}
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="bg-background rounded-lg p-4 sm:p-6 md:p-8 max-w-2xl w-full mx-4"
+              className="bg-white rounded-2xl p-8 max-w-2xl w-full mx-4 border border-border"
               onClick={e => e.stopPropagation()}
             >
-              <div className="flex items-start justify-between mb-4 sm:mb-6">
-                <h2 className="text-sm sm:text-base md:text-lg font-bold text-primary">
+              <div className="flex items-start justify-between mb-6">
+                <h2 className="text-2xl font-bold text-primary">
                   {selectedReview.restaurant}
                 </h2>
                 <button
                   onClick={() => setSelectedReview(null)}
-                  className="text-primary/70 hover:text-primary transition-colors duration-300"
+                  className="text-secondary hover:text-primary transition-colors duration-300 text-2xl"
                 >
                   ✕
                 </button>
               </div>
               
-              <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4 text-primary/70">
-                <div className="flex items-center gap-1.5">
-                  <Utensils className="w-5 h-5" />
-                  <span className="text-xs sm:text-sm">{selectedReview.cuisine}</span>
+              <div className="flex flex-wrap items-center gap-4 text-secondary">
+                <div className="flex items-center gap-2">
+                  <Utensils className="w-5 h-5 text-accent" />
+                  <span>{selectedReview.cuisine}</span>
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <MapPin className="w-5 h-5" />
-                  <span className="text-xs sm:text-sm">{selectedReview.location}</span>
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-5 h-5 text-accent" />
+                  <span>{selectedReview.location}</span>
                 </div>
               </div>
             </motion.div>
