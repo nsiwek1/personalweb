@@ -1,0 +1,122 @@
+[
+  {
+    "restaurant": "Carmine's",
+    "price": "$$$",
+    "cuisine": "Italian",
+    "location": "West Bellevue, Bellevue, WA"
+  },
+  {
+    "restaurant": "123LOUNGE",
+    "price": "$$$",
+    "cuisine": "Italian, Korean",
+    "location": "Seoul, South Korea"
+  },
+  {
+    "restaurant": "Harvest",
+    "price": "$$$",
+    "cuisine": "American",
+    "location": "Harvard Square, Cambridge, MA"
+  },
+  {
+    "restaurant": "Mistral",
+    "price": "$$$$",
+    "cuisine": "French, Mediterranean",
+    "location": "Back Bay, Boston, MA"
+  },
+  {
+    "restaurant": "The Mad Monkfish",
+    "price": "$$$",
+    "cuisine": "Japanese, Thai",
+    "location": "Cambridgeport, Cambridge, MA"
+  },
+  {
+    "restaurant": "Bar Enza",
+    "price": "$$$",
+    "cuisine": "Italian",
+    "location": "Harvard Square, Cambridge, MA"
+  },
+  {
+    "restaurant": "Din Tai Fung",
+    "price": "$$$",
+    "cuisine": "Chinese, Taiwanese",
+    "location": "Pike Pine Retail Core, Seattle, WA"
+  },
+  {
+    "restaurant": "Lanner Noodles&Bar",
+    "price": "$$",
+    "cuisine": "Noodles, Chinese",
+    "location": "Cambridgeport, Cambridge, MA"
+  },
+  {
+    "restaurant": "Nirvana The Taste of India",
+    "price": "$$",
+    "cuisine": "Indian",
+    "location": "Neighborhood Nine, Cambridge, MA"
+  },
+  {
+    "restaurant": "Russell House Tavern",
+    "price": "$$",
+    "cuisine": "American, Burgers",
+    "location": "Riverside, Cambridge, MA"
+  },
+  {
+    "restaurant": "Barcelona Wine Bar",
+    "price": "$$$",
+    "cuisine": "Wine Bar, Tapas, Spanish",
+    "location": "Neighborhood Nine, Cambridge, MA"
+  },
+  {
+    "restaurant": "Cicada",
+    "price": "$$",
+    "cuisine": "Vietnamese",
+    "location": "Central Square, Cambridge, MA"
+  },
+  {
+    "restaurant": "Contessa Boston",
+    "price": "$$$$",
+    "cuisine": "American, Italian",
+    "location": "Back Bay East, Boston, MA"
+  },
+  {
+    "restaurant": "Giulia",
+    "price": "$$$",
+    "cuisine": "Italian",
+    "location": "Neighborhood Nine, Cambridge, MA"
+  },
+  {
+    "restaurant": "Raku",
+    "price": "$$",
+    "cuisine": "Japanese, Udon, Noodles",
+    "location": "SoHo, New York, NY"
+  },
+  {
+    "restaurant": "Gufo",
+    "price": "$$$",
+    "cuisine": "Italian, Pizza",
+    "location": "East Cambridge, Cambridge, MA"
+  },
+  {
+    "restaurant": "Happy Lamb",
+    "price": "$$",
+    "cuisine": "Chinese, Hot Pot",
+    "location": "Central Square, Cambridge, MA"
+  },
+  {
+    "restaurant": "Brand Sushi Bar Podolany",
+    "price": "$$",
+    "cuisine": "Sushi",
+    "location": "Pozna\u0144, Poland"
+  },
+  {
+    "restaurant": "Myeongwon Sutbul Galbi",
+    "price": "$$",
+    "cuisine": "Korean",
+    "location": ""
+  },
+  {
+    "restaurant": "Sushikase",
+    "price": "$$$",
+    "cuisine": "Sushi",
+    "location": "Seoul, South Korea"
+  }
+]

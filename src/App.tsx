@@ -3,7 +3,6 @@ import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import Experience from './pages/Experience';
 import Projects from './pages/Projects';
-import Personal from './components/Personal';
 import School from './components/School';
 import Footer from './components/Footer';
 
@@ -20,7 +19,6 @@ function App() {
         return (
           <>
             <Hero />
-
           </>
         );
       case 'experience':

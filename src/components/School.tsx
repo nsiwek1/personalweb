@@ -141,7 +141,7 @@ const School: React.FC = () => {
     {
       name: "AI Student Safety Team",
       role: "Technical Fellowship",
-      logo: "images/aiist.jpeg"
+      logo: "/images/aiist.jpeg"
     },
     {
       name: "Peer Concentration Advising Fellow",
