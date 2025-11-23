@@ -3,6 +3,7 @@ import { ExternalLink } from 'lucide-react';
 
 const Projects: React.FC = () => {
   const projects = [
+    // add the economic experiment + the mit project + chinese project +  add wecode 
     {
       title: " Follow My Instruction and Spill the Beans: Scalable Data Extraction from Retrieval-Augmented Generation Systems. Paper Reproduction and Divergences",
       description: "Reproduced the title paper and provided 4 extensions: multilingual RAGs and prompts, summarization and prompt level defenses and RAG types.",
