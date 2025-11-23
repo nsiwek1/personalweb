@@ -4,6 +4,13 @@ import { ExternalLink } from 'lucide-react';
 const Projects: React.FC = () => {
   const projects = [
     {
+      title: " Follow My Instruction and Spill the Beans: Scalable Data Extraction from Retrieval-Augmented Generation Systems. Paper Reproduction and Divergences",
+      description: "Reproduced the title paper and provided 4 extensions: multilingual RAGs and prompts, summarization and prompt level defenses and RAG types.",
+      technologies: ["Python", "PyTorch", "Hugging Face", "OpenAI", "RAG", "Prompt Engineering"],
+      github: "https://github.com/brightlikethelight/2881-mini-project" ,
+      live: ""
+    },
+    {
       title: "Tinder for Food Options",
       description: "Built a Swift iOS app that enables group dining decisions through a Tinder-like swiping interface. Users can create groups, swipe on restaurant options, and find consensus on dining choices that satisfy everyone in the group.",
       technologies: ["Swift", "Firebase", "Google Places API"],
