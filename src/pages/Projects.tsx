@@ -4,11 +4,26 @@ import { ExternalLink } from 'lucide-react';
 const Projects: React.FC = () => {
   const projects = [
     // add the economic experiment + the mit project + chinese project +  add wecode 
+
     {
       title: " Follow My Instruction and Spill the Beans: Scalable Data Extraction from Retrieval-Augmented Generation Systems. Paper Reproduction and Divergences",
       description: "Reproduced the title paper and provided 4 extensions: multilingual RAGs and prompts, summarization and prompt level defenses and RAG types.",
       technologies: ["Python", "PyTorch", "Hugging Face", "OpenAI", "RAG", "Prompt Engineering"],
       github: "https://github.com/brightlikethelight/2881-mini-project" ,
+      live: ""
+    },
+    {
+      title: "Experiment for Economic Implications Lecture for AI Safety (CS2881r)",
+      description: "We investigated the impacts of major AI announcements on the treasury yields and measured the performance of models on GDPVal. We also evaluated their ability to assess how long the LLM will take to finish a task and the relation between the actual time and messiness  ",
+      technologies: ["Python", "OpenAI API", "Data Science"],
+      github: "" ,
+      live: ""
+    },
+    {
+      title: "WECode Conference Portal",
+      description: "Founded the engineering branch within WECode and developed the first version of the Conference Portal (autheticatation, mentor matching, schedules, admin etc.) ",
+      technologies: ["React.js", "Supabase", "Tailwind.css"],
+      github: "https://portalwecode.vercel.app" ,
       live: ""
     },
     {
