@@ -6,7 +6,7 @@ const Hero: React.FC = () => {
     {
       year: "2026",
       items: [
-        { title: "Incoming Quant Trading Intern Intern", org: "Jane Street", location: "New York, NY" }
+        { title: "Incoming Quant Trading Intern ", org: "Jane Street", location: "New York, NY" }
       ]
     },
     {
@@ -28,49 +28,63 @@ const Hero: React.FC = () => {
     <section className="min-h-screen bg-white py-32 px-6">
       <div className="max-w-3xl mx-auto">
         {/* Header - Elegant and refined */}
-        <div className="mb-24 border-b border-border pb-12">
-          <h1 className="text-5xl md:text-6xl font-light tracking-tight text-primary mb-4 leading-tight">
-            Natalia Siwek
-          </h1>
-          <p className="text-xl text-muted font-light mb-8 tracking-wide">
-            Computer Science & Math @ Harvard
-          </p>
-          
-          {/* Contact - Elegant inline layout */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-6 text-sm text-secondary mb-8">
-            <a 
-              href="mailto:nataliasiwek@college.harvard.edu"
-              className="flex items-center gap-2 hover:text-primary transition-colors group"
-            >
-              <Mail size={16} className="text-muted group-hover:text-accent transition-colors" />
-              <span className="font-light">nataliasiwek@college.harvard.edu</span>
-            </a>
-            <div className="flex items-center gap-2">
-              <MapPin size={16} className="text-muted" />
-              <span className="font-light">Cambridge, Massachusetts</span>
-            </div>
-          </div>
+        {/* Header */}
+<div className="mb-24 border-b border-border pb-12 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8">
+  {/* Left side: name and info */}
+  <div>
+    <h1 className="text-5xl md:text-6xl font-light tracking-tight text-primary mb-4 leading-tight">
+      Natalia Siwek
+    </h1>
+    <p className="text-xl text-muted font-light mb-8 tracking-wide">
+      Computer Science & Math @ Harvard
+    </p>
 
-          {/* Social - Refined */}
-          <div className="flex items-center gap-6">
-            <a
-              href="https://github.com/nsiwek1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted hover:text-primary transition-colors"
-            >
-              <Github size={18} strokeWidth={1.5} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/natalia-siwek-640957235/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted hover:text-primary transition-colors"
-            >
-              <Linkedin size={18} strokeWidth={1.5} />
-            </a>
-          </div>
-        </div>
+    {/* Contact */}
+    <div className="flex flex-col sm:flex-row sm:items-center gap-6 text-sm text-secondary mb-8">
+      <a 
+        href="mailto:nataliasiwek@college.harvard.edu"
+        className="flex items-center gap-2 hover:text-primary transition-colors group"
+      >
+        <Mail size={16} className="text-muted group-hover:text-accent transition-colors" />
+        <span className="font-light">nataliasiwek@college.harvard.edu</span>
+      </a>
+      <div className="flex items-center gap-2">
+        <MapPin size={16} className="text-muted" />
+        <span className="font-light">Cambridge, Massachusetts</span>
+      </div>
+    </div>
+
+    {/* Social */}
+    <div className="flex items-center gap-6">
+      <a
+        href="https://github.com/nsiwek1"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-muted hover:text-primary transition-colors"
+      >
+        <Github size={18} strokeWidth={1.5} />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/natalia-siwek-640957235/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-muted hover:text-primary transition-colors"
+      >
+        <Linkedin size={18} strokeWidth={1.5} />
+      </a>
+    </div>
+  </div>
+
+  {/* Right side: outline image */}
+  <div className="flex-shrink-0">
+    <img
+      src="/images/graphic.png"
+      alt="Outline portrait of Natalia Siwek"
+      className="w-40 h-auto object-contain rounded-none border-none shadow-none bg-transparent hover:shadow-none hover:border-none transition-none"
+    />
+  </div>
+</div>
+
 
         {/* Timeline - Elegant and spacious */}
         <div className="space-y-16">
