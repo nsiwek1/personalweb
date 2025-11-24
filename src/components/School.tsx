@@ -174,7 +174,7 @@ const School: React.FC = () => {
             School
           </h1>
           <p className="text-xl text-muted font-light tracking-wide">
-            Academic and campus life at Harvard
+            Academic and campus life at Harvard (and occasionally MIT)
           </p>
         </div>
 

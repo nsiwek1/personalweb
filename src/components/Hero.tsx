@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
             Natalia Siwek
           </h1>
           <p className="text-xl text-muted font-light mb-8 tracking-wide">
-            Computer Science & Math
+            Computer Science & Math @ Harvard
           </p>
           
           {/* Contact - Elegant inline layout */}
