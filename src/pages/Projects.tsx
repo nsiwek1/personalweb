@@ -4,11 +4,18 @@ import { ExternalLink } from 'lucide-react';
 const Projects: React.FC = () => {
   const projects = [
     // add the economic experiment + the mit project + chinese project +  add wecode 
+{
+      title: "AI-induced psychosis:Study reproduction and extensions on semantic drift, long term interactions and interventions",
+      description: "Reproduced the AI psychosis investigation and provided extensions on semantic drift and possible interventions. including grounding and metacognition.",
+      technologies: ["Python", "AI Safety", "API", "Semantics"],
+      github: "https://github.com/nsiwek1/ai-psychosis" ,
+      live: ""
+    },
 
     {
-      title: " Follow My Instruction and Spill the Beans: Scalable Data Extraction from Retrieval-Augmented Generation Systems. Paper Reproduction and Divergences",
+      title: " Follow My Instruction and Spill the Beans: Scalabe Data Extraction from Retrieval-Augmented Generation Systems. Paper Reproduction and Divergences",
       description: "Reproduced the title paper and provided 4 extensions: multilingual RAGs and prompts, summarization and prompt level defenses and RAG types.",
-      technologies: ["Python", "PyTorch", "Hugging Face", "OpenAI", "RAG", "Prompt Engineering"],
+      technologies: ["Python", "AI Safety", "Hugging Face", "API", "RAG", "Prompt Engineering"],
       github: "https://github.com/brightlikethelight/2881-mini-project" ,
       live: ""
     },
