@@ -3,7 +3,6 @@ import { ExternalLink } from 'lucide-react';
 
 const Projects: React.FC = () => {
   const projects = [
-    // add the economic experiment + the mit project + chinese project +  add wecode 
 {
       title: "AI-induced psychosis:Study reproduction and extensions on semantic drift, long term interactions and interventions",
       description: "Reproduced the AI psychosis investigation and provided extensions on semantic drift and possible interventions. including grounding and metacognition.",
