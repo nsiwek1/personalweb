@@ -7,8 +7,8 @@ const Projects: React.FC = () => {
       title: "AI-induced psychosis:Study reproduction and extensions on semantic drift, long term interactions and interventions",
       description: "Reproduced the AI psychosis investigation and provided extensions on semantic drift and possible interventions. including grounding and metacognition.",
       technologies: ["Python", "AI Safety", "API", "Semantics"],
-      github: "https://github.com/nsiwek1/ai-psychosis" ,
-      live: "https://boazbk.github.io/mltheoryseminar/student_projects/final_papers_and_posters/papers/final_project_cs2881r_-_Bright_Liu.pdf"
+      live: "https://github.com/nsiwek1/ai-psychosis" ,
+      github: "https://boazbk.github.io/mltheoryseminar/student_projects/final_papers_and_posters/papers/final_project_cs2881r_-_Bright_Liu.pdf"
     },
     {
       title: "Evaluating Tradeoffs in Kidney Allocation: A Simulation and Decision-Making Framework",
