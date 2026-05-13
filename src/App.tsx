@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import Experience from './pages/Experience';
@@ -7,40 +8,17 @@ import School from './components/School';
 import Footer from './components/Footer';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('home');
-
-  const handleNavigate = (page: string) => {
-    setCurrentPage(page);
-  };
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'home':
-        return (
-          <>
-            <Hero />
-          </>
-        );
-      case 'experience':
-        return <Experience />;
-      case 'projects':
-        return <Projects />;
-      case 'school':
-        return <School />;
-      default:
-        return (
-          <>
-            <Hero />
-          </>
-        );
-    }
-  };
-
   return (
     <div className="min-h-screen bg-white text-primary overflow-hidden relative">
-      <Navigation onNavigate={handleNavigate} currentPage={currentPage} />
+      <Navigation />
       <main>
-        {renderPage()}
+        <Routes>
+          <Route path="/" element={<Hero />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/school" element={<School />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </main>
       <Footer />
     </div>

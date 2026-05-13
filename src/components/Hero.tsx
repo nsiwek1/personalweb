@@ -6,7 +6,7 @@ const Hero: React.FC = () => {
     {
       year: "2026",
       items: [
-        { title: "Incoming Quant Trading Intern ", org: "Jane Street", location: "New York, NY" }
+        { title: "Incoming Quant Trading Intern", org: "Jane Street", location: "New York, NY" }
       ]
     },
     {
@@ -78,7 +78,7 @@ const Hero: React.FC = () => {
   {/* Right side: outline image */}
   <div className="flex-shrink-0">
     <img
-      src="/images/graphic.png"
+      src="/images/graphic.webp"
       alt="Outline portrait of Natalia Siwek"
       className="w-40 h-auto object-contain rounded-none border-none shadow-none bg-transparent hover:shadow-none hover:border-none transition-none"
     />

@@ -22,17 +22,17 @@ const School: React.FC = () => {
   const teaching: TeachingRole[] = [
     {
       title: "Teaching Fellow",
-      course: "CS1240: Algorithms and Data Structures",
+      course: "CS 1240: Algorithms and Data Structures",
       period: "Spring 2026"
     },
     {
       title: "Head Teaching Fellow",
-      course: "CS50: Introduction to Computer Science",
+      course: "CS 50: Introduction to Computer Science",
       period: "Fall 2024, Spring 2025, Fall 2025"
     },
     {
       title: "Patel Fellow",
-      course: "CS1200: Introduction to Algorithms",
+      course: "CS 1200: Introduction to Algorithms",
       period: "Fall 2025"
     }
   ];
@@ -146,7 +146,7 @@ const School: React.FC = () => {
     {
       name: "Peer Concentration Advising Fellow",
       role: "Co-Captain",
-      logo: "https://www.seas.harvard.edu/sites/default/files/images/About%20SEAS/image_large.png"
+      logo: "/images/seas-harvard.webp"
     },
     {
       name: "WECode",
@@ -156,7 +156,7 @@ const School: React.FC = () => {
     {
       name: "Harvard Program for Asian and International Relations",
       role: "Finance & Technology Director",
-      logo: "https://images.squarespace-cdn.com/content/v1/685193535b70ba7b31c6d673/1750176616661-NWIG4T9XK5NLKU79BKXG/HPAIR+Official+Logo.png?format=1500w"
+      logo: "/images/hpair.webp"
     },
     {
       name: "Harvard College Debating Union",

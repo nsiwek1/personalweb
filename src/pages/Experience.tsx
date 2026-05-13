@@ -11,7 +11,7 @@ const Experience: React.FC = () => {
       description: [ 
       ],
       technologies: [],
-      logo: "https://media.licdn.com/dms/image/v2/D4E0BAQGDwkF0pxTSjg/company-logo_200_200/company-logo_200_200/0/1700507376786/jane_street_global_logo?e=2147483647&v=beta&t=Zueimo_ftClwHS3SBZnhNcTcdREIFCdBucqUSWDtG6s"
+      logo: "/images/janestreet.jpeg"
     },
     {
       title: "Software Engineering Intern",
@@ -23,10 +23,10 @@ const Experience: React.FC = () => {
         "Implemented pipelines to use preconfigured VHDs for script installations", 
       ],
       technologies: ["C#", "Kusto", "Cloud", "Git", "Azure"],
-      logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+      logo: "/images/microsoft.svg"
     },
     {
-      title: "Head Teaching Fellow (CS50) and Patel Fellow (CS120)",
+      title: "Head Teaching Fellow (CS 50) and Patel Fellow (CS 1200)",
       company: "School of Engineering and Applied Sciences, Harvard",
       location: "Cambridge, Massachusetts",
       period: "2024 — Present",
@@ -35,7 +35,7 @@ const Experience: React.FC = () => {
         "Serves as a Patel Fellow for Intro to Algorithms class, provides one on one tutoring for struggling students",
       ],
       technologies: ["Python", "Flask", "SQL", "C", "HTML", "JS"],
-      logo: "https://www.seas.harvard.edu/sites/default/files/images/About%20SEAS/image_large.png"
+      logo: "/images/seas-harvard.webp"
     }, 
     {
       title: "Research Assistant",
@@ -47,7 +47,7 @@ const Experience: React.FC = () => {
         "Designed and trained neural network models to map sensor signal patterns to specific odor classes, improving classification accuracy",
       ],
       technologies: ["Arduino", "Python", "PyTorch", "Machine Learning"],
-      logo: "https://upload.wikimedia.org/wikipedia/commons/0/0c/MIT_logo.svg"
+      logo: "/images/mit.svg"
     },
     {
       title: "AI Intern",
@@ -59,7 +59,7 @@ const Experience: React.FC = () => {
         "Researched available GenAI models and analyzed them on research papers-based benchmarks; presented findings to the bank's board, which led to change of the used LLM model and increased usage of AI agents",
       ],
       technologies: ["Python", "Flask"],
-      logo: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Logo_VeloBank.png"
+      logo: "/images/velobank.webp"
     }
   ];
 
