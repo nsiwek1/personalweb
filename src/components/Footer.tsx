@@ -5,7 +5,7 @@ const Footer = () => {
         <footer className="py-12 px-6 bg-white border-t border-border">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-muted text-sm">
-            © 2025 Natalia Siwek. Designed with care.
+            © 2026 Natalia Siwek
           </p>
         </div>
       </footer>

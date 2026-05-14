@@ -1,17 +1,38 @@
 import React from 'react';
 import { MapPin } from 'lucide-react';
 
+interface ExperienceItem {
+  title: string;
+  company: string;
+  location: string;
+  period: string;
+  description: string[];
+  technologies: string[];
+  logo: string;
+}
+
 const Experience: React.FC = () => {
-  const experiences = [
+  const experiences: ExperienceItem[] = [
     {
       title: "Incoming Quant Trading Intern",
       company: "Jane Street",
       location: "New York, New York",
       period: "Summer 2026",
-      description: [ 
-      ],
+      description: [],
       technologies: [],
       logo: "/images/janestreet.jpeg"
+    },
+    {
+      title: "Junior Lab Member",
+      company: "Goldenberg Lab",
+      location: "Cambridge, Massachusetts",
+      period: "January 2026 — Present",
+      description: [
+        "Operationalized 'hyper-emotional' dialogue behaviors as controllable model attributes for population-level studies of LLM tone",
+        "Implemented multiple intervention strategies including system-prompt conditioning, activation engineering, and LoRA fine-tuning",
+      ],
+      technologies: ["Python", "PyTorch", "LoRA", "LLMs"],
+      logo: ""
     },
     {
       title: "Software Engineering Intern",
@@ -20,7 +41,7 @@ const Experience: React.FC = () => {
       period: "Summer 2025",
       description: [
         "Developed, designed and tested Virtual Hard Disk (VHD) caching for Azure App Services, which reduced the time to start new instances by 80%",
-        "Implemented pipelines to use preconfigured VHDs for script installations", 
+        "Implemented pipelines to use preconfigured VHDs for script installations",
       ],
       technologies: ["C#", "Kusto", "Cloud", "Git", "Azure"],
       logo: "/images/microsoft.svg"
@@ -36,7 +57,7 @@ const Experience: React.FC = () => {
       ],
       technologies: ["Python", "Flask", "SQL", "C", "HTML", "JS"],
       logo: "/images/seas-harvard.webp"
-    }, 
+    },
     {
       title: "Research Assistant",
       company: "MIT Media Lab",
@@ -64,82 +85,89 @@ const Experience: React.FC = () => {
   ];
 
   return (
-    <div id="experience" className="min-h-screen bg-white py-32 px-6">
+    <div className="min-h-screen bg-white py-32 px-6">
       <div className="max-w-3xl mx-auto">
-        {/* Section header - elegant and minimal */}
-        <div className="mb-24 border-b border-border pb-12">
-          <h1 className="text-5xl md:text-6xl font-light tracking-tight text-primary mb-4">
-            Experience
-          </h1>
-          <p className="text-xl text-muted font-light tracking-wide">
-            Professional work and research
-          </p>
-        </div>
-        
-        {/* Elegant list */}
-        <div className="space-y-20">
-          {experiences.map((exp, index) => (
-            <div 
-              key={index}
-              className="group flex gap-8"
-            >
-              {/* Logo */}
-              {exp.logo && (
-                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center">
-                  <img 
-                    src={exp.logo} 
-                    alt={`${exp.company} logo`}
-                    className="w-full h-full object-contain opacity-60 group-hover:opacity-100 transition-opacity"
-                  />
+        <h1 className="sr-only">Experience</h1>
+
+        <div className="space-y-16">
+          {experiences.map((exp, index) => {
+            const isLast = index === experiences.length - 1;
+            return (
+              <div key={index} className="group flex items-start gap-6 md:gap-10">
+                <div className="hidden sm:block w-24 flex-shrink-0 pt-2">
+                  <span className="text-sm font-light text-muted tracking-wider">
+                    {exp.period}
+                  </span>
                 </div>
-              )}
-              
-              <div className="flex-1 space-y-6">
-                {/* Header */}
-                <div>
-                  <h3 className="text-2xl font-normal text-primary mb-2 group-hover:text-accent transition-colors">
-                    {exp.title}
-                  </h3>
-                  <p className="text-lg text-secondary font-light mb-3">
-                    {exp.company}
-                  </p>
-                  <div className="flex flex-wrap items-center gap-6 text-sm text-muted font-light">
-                    <div className="flex items-center gap-2">
-                      <MapPin size={14} strokeWidth={1.5} />
-                      <span>{exp.location}</span>
+
+                <div className="relative flex-shrink-0 pt-3 self-stretch">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary relative z-10" />
+                  {!isLast && (
+                    <div className="absolute left-1/2 top-5 -translate-x-1/2 w-px bg-border"
+                         style={{ bottom: '-4rem' }} />
+                  )}
+                </div>
+
+                <div className="flex-1 flex gap-5 md:gap-6 min-w-0">
+                  <div className="flex-shrink-0 w-11 h-11 flex items-center justify-center">
+                    {exp.logo && (
+                      <img
+                        src={exp.logo}
+                        alt={`${exp.company} logo`}
+                        className="w-full h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity"
+                      />
+                    )}
+                  </div>
+
+                  <div className="flex-1 space-y-4 min-w-0">
+                    <div>
+                      <h2 className="text-xl font-normal text-primary mb-1 group-hover:text-accent transition-colors">
+                        {exp.title}
+                      </h2>
+                      <p className="text-base text-secondary font-light mb-2">
+                        {exp.company}
+                      </p>
+                      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted font-light">
+                        <div className="flex items-center gap-1.5">
+                          <MapPin size={13} strokeWidth={1.5} />
+                          <span>{exp.location}</span>
+                        </div>
+                        <span className="sm:hidden">{exp.period}</span>
+                      </div>
                     </div>
-                    <span>{exp.period}</span>
+
+                    {exp.description.length > 0 && (
+                      <ul className="space-y-2">
+                        {exp.description.map((item, i) => (
+                          <li key={i} className="flex gap-3 text-secondary font-light leading-relaxed text-[15px]">
+                            <span className="text-muted mt-2 flex-shrink-0">—</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {exp.technologies.length > 0 && (
+                      <div className="flex flex-wrap gap-2 pt-1">
+                        {exp.technologies.map((tech, i) => (
+                          <span
+                            key={i}
+                            className="inline-flex px-2.5 py-0.5 rounded-full text-xs font-light border border-border text-muted"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
-
-                {/* Description */}
-                <ul className="space-y-3">
-                  {exp.description.map((item, i) => (
-                    <li key={i} className="flex gap-4 text-secondary font-light leading-relaxed">
-                      <span className="text-muted mt-2">—</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Technologies - refined */}
-                <div className="flex flex-wrap gap-3 pt-2">
-                  {exp.technologies.map((tech, i) => (
-                    <span 
-                      key={i}
-                      className="text-sm text-muted font-light"
-                    >
-                      {tech}{i < exp.technologies.length - 1 ? ',' : ''}
-                    </span>
-                  ))}
-                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
   );
 };
 
-export default Experience; 
+export default Experience;
